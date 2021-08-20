@@ -1,0 +1,216 @@
+{
+	"$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
+	"name": "LEF",
+	"patterns": [
+		{
+			"include": "#keywords"
+		},
+		{
+			"include": "#strings"
+		},
+		{
+			"include": "#constants"
+		},
+		{
+			"include": "#storage"
+		},
+		{
+			"include": "#entities"
+		},
+		{
+			"include": "#variables"
+		},
+		{
+			"include": "#layer"
+		}
+	],
+	"repository": {
+		"keywords": {
+			"patterns": [
+				{
+					"name": "keyword.other.statement.lef",
+					"match": "\\b(VERSION|BUSBITCHARS|DIVIDERCHAR|UNITS|MANUFACTURINGGRID|USEMINSPACING|CLEARANCEMEASURE|PROPERTYDEFINITIONS|MAXVIASTACK|VIA|VIARULE|VIARULE GENERATE|NONDEFAULTRULE|SITE|BEGINEXT|END LIBRARY|MACRO|PIN|OBS|END)\\b"
+				},
+				{
+					"name": "keyword.other.layer.cut.lef",
+					"match": "\\b(TYPE|PROPERTY|SPACING|SPACINGTABLE|ARRAYSPACING|WIDTH|ENCLOSURE|PREFERENCLOSURE|RESISTANCE|LENGTH|WITHIN|ACCURRENTDENSITY|DCCURRENTDENSITY|ANTENNAMODEL|ANTENNAAREARATIO|ANTENNADIFFAREARATIO|ANTENNACUMAREARATIO|ANTENNACUMDIFFAREARATIO|ANTENNAAREAFACTOR|ANTENNACUMROUTINGPLUSCUT|ANTENNAGATEPLUSDIFF|ANTENNAAREAMINUSDIFF|ANTENNAAREADIFFREDUCEPWL|CUTS|CENTERTOCENTER|NOSHAREDEDGE|FREQUENCY|TABLEENTRIES|PWL|DIFFUSEONLY|PRL|STACK|ADJACENTCUTS|EXCEPTSAMEPGNET|EXACTALIGNED|PARALLELOVERLAP|SIDEPARALLELOVERLAP|PARALLELWITHIN|LONGARRAY|SAMEMETALSHAREDEDGE|EXCEPTTWOEDGES|ARRAYCUTS|EXCEPTEXTRACUT|EXTRACUT|REDUNDANTCUT)\\b"
+				},
+				{
+					"name": "keyword.other.layer.routing.lef",
+					"match": "\\b(DIRECTION|PITCH|DIAPITCH|OFFSET|DIAGWIDTH|DIAGSPACING|DIAGMINEDGELENGTH|AREA|MINSIZE|RANGE|USELENGTHTHRESHOLD|INFLUENCE|LENGTHTHRESHOLD|ENDOFLINE|EXCEPTMINWIDTH|EXCEPTEDGELENGTH|EXCEPTMINSIZE|PARALLELEDGE|NOTCHLENGTH|ENDOFNOTCHWIDTH|NOTCHSPACING|TWOWIDTHS|PARALLELRUNLENGTH|PARALLELSPANLENGTH|EOLPERPENDICULAR|OPPOSITEWIDTH|ENDTOEND|MAXLENGTH|MINLENGTH|OTHERENDWIDTH|EQUALRECTWIDTH|SUBTRACTEOLWIDTH|ENCLOSECUT|TWOSIDES|TWOEDGES|CUTSPACING|FILLTOFILLSPACING|OPPOSITEEOLSPACING|ENDWIDTH|JOINTWIDTH|JOINTTOEDGEEND|JOINTLENGTH|ENDTOJOINT|JOINTTOEND|JOINTTOJOINT|WIREEXTENSION|MINIMUMCUT|MAXWIDTH|MINWIDTH|MINSTEP|LENGTHSUM|MAXEDGES|MINADJACENTLENGTH|CONVEXCORNER|MINBETWEENLENGTH|EXCEPTSAMECORNERS|EOLEXTENSIONSPACING|EXTENSION|MINENCLOSEDAREA|PROTRUSIONWIDTH|CAPACITANCE|HEIGHT|THICKNESS|SHRINKAGE|CAPMULTIPLIER|EDGECAPACITANCE|MINIMUMDENSITY|MAXIMUMDENSITY|DENSITYCHECKWINDOW|DENSITYCHECKSTEP|FILLACTIVESPACING|ANTENNASIDEAREARATIO|ANTENNADIFFSIDEAREARATIO|ANTENNACUMSIDEAREARATIO|ANTENNACUMDIFFSIDEAREARATIO|ANTENNASIDEAREAFACTOR)\\b"
+				},
+				{
+					"name": "keyword.other.lef",
+					"match": "\\b(NAMESCASESENSITIVE|TO|LIBRARY)\\b"
+				},
+				{
+					"name": "keyword.other.units.lef",
+					"match": "\\b(TIME NANOSECONDS|CAPACITANCE PICOFARADS|RESISTANCE OHMS|POWER MILLIWATTS|CURRENT MILLIAMPS|VOLTAGE VOLTS|DATABASE MICRONS|FREQUENCY MEGAHERTZ)\\b"
+				},
+				{
+					"name": "keyword.other.via.lef",
+					"match": "\\b(RECT|POLYGON|CUTSIZE|LAYERS|ROWCOL|ORIGIN|PATTERN|DEFAULT)\\b"
+				},
+				{
+					"name": "keyword.other.type.lef",
+					"match": "\\b(TSV|PASSIVATION)\\b"
+				},
+				{
+					"name": "keyword.other.property.lef",
+					"match": "\\bLEF\\d\\d\\_(TYPE|BACKSIDE|SPACING|SPACINGTABLE|ARRAYSPACING|ENCLOSURE|ENCLOSUREEDGE|WIDTH|MINSTEP)\\b"
+				},
+				{
+					"name": "keyword.other.site.lef",
+					"match": "\\b(CLASS|SYMMETRY|ROWPATTERN|SIZE|BY)\\b"
+				},
+				{
+					"name": "keyword.other.nondefaultrule.lef",
+					"match": "\\b(HARDSPACING|USEVIA)\\b"
+				}
+			]
+		},
+		"strings": {
+			"name": "string.quoted.double.lef",
+			"begin": "\"",
+			"end": "\"",
+			"patterns": []
+		},
+		"constants": {
+			"patterns": [
+				{
+					"name": "constant.numeric.lef",
+					"match": "\\b(\\-|\\+)?\\d+(\\.\\d*)?\\b"
+				},
+				{
+					"name": "constant.language.clearancemeasure.lef",
+					"match": "\\b(MAXXY|EUCLIDEAN)\\b"
+				},
+				{
+					"name": "constant.language.type.lef",
+					"match": "\\b(CUT|ROUTING|IMPLANT|MASTERSLICE|OVERLAP)\\b"
+				},
+				{
+					"name": "constant.language.direction.lef",
+					"match": "\\b(HORIZONTAL|VERTICAL|DIAG45|DIAG135)\\b"
+				},
+				{
+					"name": "constant.language.enclosecut.lef",
+					"match": "\\b(BELOW|ABOVE)\\b"
+				},
+				{
+					"name": "constant.language.minimumcut.lef",
+					"match": "\\b(FROMABOVE|FROMBELOW)\\b"
+				},
+				{
+					"name": "constant.language.minstep.lef",
+					"match": "\\b(INSIDECORNER|OUTSIDECORNER|STEP)\\b"
+				},
+				{
+					"name": "constant.language.namecasesensitive.lef",
+					"match": "\\b(ON|OFF)\\b"
+				},
+				{
+					"name": "constant.language.accurrentdensity.lef",
+					"match": "\\b(PEAK|AVERAGE|RMS)\\b"
+				},
+				{
+					"name": "constant.language.antennamodel.lef",
+					"match": "\\b(OXIDE1|OXIDE2|OXIDE3|OXIDE4)\\b"
+				},
+				{
+					"name": "constant.language.same.lef",
+					"match": "\\b(SAMENET|SAMEMETAL|SAMEVIA)\\b"
+				},
+				{
+					"name": "constant.language.exceptsame.lef",
+					"match": "\\b(EXCEPTSAMENET|EXCEPTSAMEMETAL|EXCEPTSAMEVIA)\\b"
+				},
+				{
+					"name": "constant.language.spacingtable.lef",
+					"match": "\\b(ALL|SIDE|END)\\b"
+				},
+				{
+					"name": "constant.language.class.lef",
+					"match": "\\b(PAD|CORE)\\b"
+				},
+				{
+					"name": "constant.language.symmetry.lef",
+					"match": "\\b(X|Y|R90)\\b"
+				}
+			]
+		},
+		"storage": {
+			"patterns": [{ "include": "#layer" }, { "include": "#macro"}, { "include": "#ext"}, { "include": "#units" }, { "include": "#via" }, { "include": "#propertydefinitions" }, { "include": "#site" }]
+		},
+		"macro": {
+			"name": "storage.type.macro.lef",
+			"begin": "MACRO",
+			"end": "END",
+			"patterns": []
+		},
+		"ext": {
+			"name": "storage.type.ext.lef",
+			"begin": "BEGINEXT",
+			"end": "ENDEXT",
+			"patterns": []
+		},
+		"units": {
+			"name": "storage.type.units.lef",
+			"begin": "UNITS",
+			"end": "END UNITS",
+			"patterns": []
+		},
+		"via": {
+			"name": "storage.type.via.lef",
+			"begin": "VIA",
+			"end": "END",
+			"patterns": []
+		},
+		"propertydefinitions": {
+			"name": "storage.type.propertydefinitions.lef",
+			"begin": "PROPERTYDEFINITIONS",
+			"end": "END PROPERTYDEFINITIONS",
+			"patterns": []
+		},
+		"site": {
+			"name": "storage.type.site.lef",
+			"begin": "SITE",
+			"end": "END",
+			"patterns": []
+		},
+		"entities": {
+			"name": "entity.name.type.string.lef",
+			"patterns": ["\\b(STRING|CUTCLASS|INTEGER|REAL)\\b"]
+		},
+		"variables": {
+			"patterns": [
+				{
+					"name": "variable.parameter.lef",
+					"match": "\\b(MANUFACTURINGGRID|MAXVIASTACK)\\b"
+				},
+				{
+					"name": "variable.parameter.layer.lef",
+					"match": "\\b()\\b"
+				}
+			]
+		},
+		"layer": {
+			"patterns": [
+			    {
+					"name": "storage.type.layer.lef",
+					"match": "\\bLAYER?|END?)\\b"
+			  	},
+			  	{
+					"name": "entity.name.type.viml",
+					"match": "(?:([sSgGbBwWtTlL]?(:))?[\\w#]+)(?=\\()",
+					"captures": {
+						"1": {
+							"name": "entity.name.type.layer.viml"
+						}
+					}
+			  	}
+			]
+		}
+	},
+	"scopeName": "source.lef"
+}

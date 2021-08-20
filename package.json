@@ -1,0 +1,51 @@
+{
+    "name": "lef/def",
+    "displayName": "LEF/DEF",
+    "description": "Library Exchange Format (LEF) and Design Exchange Format (DEF) integrated circuit (IC) description languages support",
+    "version": "0.0.1",
+    "publisher": "Yihua Liu",
+    "repository": {
+      "type": "git",
+      "url": "https://github.com/yihuajack/vscode-lef-def.git"
+    },
+    "author": "Yihua Liu <yihuajack@live.cn>",
+    "engines": {
+        "vscode": "^1.46.0"
+    },
+    "categories": [
+        "Programming Languages",
+        "Formatters"
+    ],
+    "bugs": {
+      "url": "https://github.com/yihuajack/vscode-lef-def/issues"
+    },
+    "homepage": "https://github.com/yihuajack/vscode-lef-def#readme",
+    "contributes": {
+        "languages": [
+            {
+                "id": "lef",
+                "aliases": ["LEF", "lef", "Library Exchange Format"],
+                "extensions": [".lef"],
+                "configuration": "./language-configuration.json"
+            },
+            {
+                "id": "def",
+                "aliases": ["DEF", "def", "Design Exchange Format"],
+                "extensions": [".def"],
+                "configuration": "./language-configuration.json"
+            }
+        ],
+        "grammars": [
+            {
+                "language": "lef",
+                "scopeName": "source.lef",
+                "path": "./syntaxes/lef.tmLanguage.json"
+            },
+            {
+                "language": "def",
+                "scopeName": "source.def",
+                "path": "./syntaxes/def.tmLanguage.json"
+            }
+        ]
+    }
+}
